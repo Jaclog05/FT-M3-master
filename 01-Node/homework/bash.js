@@ -11,5 +11,12 @@ process.stdin.on('data', function (data) {
   if(cmd === 'pwd') {
     commands[cmd]()
   }
+  if(cmd === 'ls') {
+    commands[cmd]()
+  }
+  if(cmd.split(' ')[0] === 'echo') {
+    let data = cmd.split(' ')[1]
+    commands['echo'](data)
+  }
   process.stdout.write('\nprompt > ');
 });
